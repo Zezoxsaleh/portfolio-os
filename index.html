@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ezzeldeen Saleh portfolio operating system concept." />
+  <title>Ezzeldeen OS | Backend Developer Workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23071014'/%3E%3Crect x='.75' y='.75' width='30.5' height='30.5' rx='5.25' fill='none' stroke='%2339d5ff' stroke-width='1.5' opacity='.5'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='monospace' font-size='14' font-weight='800' fill='%2339d5ff'%3EES%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+  <meta property="og:title" content="Ezzeldeen OS | Backend Developer Workspace" />
+  <meta property="og:description" content="Interactive OS-themed portfolio of Ezzeldeen Saleh — Backend Developer specializing in distributed systems, microservices, and data pipelines." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ezzeldeen OS | Backend Developer Workspace" />
+  <meta name="twitter:description" content="Interactive OS-themed portfolio — distributed systems, microservices, Kafka, Docker." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="boot-screen" id="bootScreen" aria-live="polite">
+    <div class="boot-grid"></div>
+    <div class="boot-core" aria-hidden="true">
+      <div class="core-ring ring-one"></div>
+      <div class="core-ring ring-two"></div>
+      <div class="core-ring ring-three"></div>
+      <div class="core-dot"></div>
+    </div>
+    <section class="boot-panel">
+      <p class="eyebrow">EZZELDEEN OS // SECURE WORKSTATION</p>
+      <h1>Initializing digital mind</h1>
+      <div class="boot-lines" id="bootLines"></div>
+      <div class="boot-progress" aria-label="Boot progress">
+        <span id="bootProgress"></span>
+      </div>
+      <p class="boot-hint">Press Enter to skip startup animation</p>
+    </section>
+  </div>
+
+  <div class="shutdown-screen" id="shutdownScreen" hidden>
+    <div>
+      <p class="eyebrow">SESSION SUSPENDED</p>
+      <h2>Ezzeldeen OS is in low-power mode</h2>
+      <button class="primary-action" id="rebootButton" type="button">Reboot workspace</button>
+    </div>
+  </div>
+
+  <canvas id="ambientCanvas" class="ambient-canvas" aria-hidden="true"></canvas>
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="light-field" aria-hidden="true"></div>
+  <div class="data-rain" id="dataRain" aria-hidden="true"></div>
+
+  <main class="desktop is-locked" id="desktop">
+    <section class="desktop-icons" aria-label="Desktop applications">
+      <button class="desktop-icon" type="button" data-open-window="explorer">
+        <span class="icon-plate">FS</span>
+        <span>Projects</span>
+      </button>
+      <button class="desktop-icon" type="button" data-open-window="terminal">
+        <span class="icon-plate">_</span>
+        <span>Terminal</span>
+      </button>
+      <button class="desktop-icon" type="button" data-open-window="taskManager">
+        <span class="icon-plate">TM</span>
+        <span>Task Manager</span>
+      </button>
+      <button class="desktop-icon" type="button" data-open-window="monitor">
+        <span class="icon-plate">IO</span>
+        <span>Telemetry</span>
+      </button>
+      <button class="desktop-icon" type="button" data-open-window="resume">
+        <span class="icon-plate">CV</span>
+        <span>Resume</span>
+      </button>
+      <button class="desktop-icon" type="button" data-open-window="contact">
+        <span class="icon-plate">@</span>
+        <span>Contact</span>
+      </button>
+    </section>
+
+    <section class="mission-deck" aria-label="Workspace overview">
+      <div class="identity-module">
+        <div class="identity-header">
+          <div class="profile-avatar" aria-label="Profile photo">ES</div>
+          <div class="identity-meta">
+            <p class="eyebrow">LIVE PROFILE</p>
+            <span class="identity-status-tag">SYSTEM WORKSPACE // ONLINE</span>
+          </div>
+        </div>
+        <h1>Ezzeldeen Saleh</h1>
+        <p>Backend Developer building distributed systems, event-driven services, and real-time data pipelines.</p>
+        <div class="identity-actions">
+          <button class="id-btn primary" type="button" data-open-window="explorer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Explore Projects
+          </button>
+          <button class="id-btn secondary" type="button" data-open-window="resume">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            Resume / CV
+          </button>
+          <button class="id-btn ghost" type="button" data-open-window="contact">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Contact
+          </button>
+        </div>
+        <div class="signal-row">
+          <span class="status-pill"><i></i>Available</span>
+          <span>Cairo, Egypt</span>
+          <span id="desktopClock">00:00</span>
+        </div>
+      </div>
+      <div class="quick-widgets">
+        <article class="widget stat-widget">
+          <div class="stat-head">
+            <span>Microservices</span>
+            <span class="stat-badge green">11 Mapped</span>
+          </div>
+          <strong data-live="services">11</strong>
+          <div>
+            <div class="stat-meter"><span style="width: 85%"></span></div>
+            <small>service modules mapped</small>
+          </div>
+        </article>
+        <article class="widget stat-widget">
+          <div class="stat-head">
+            <span>Events/sec</span>
+            <span class="stat-badge cyan">Kafka Live</span>
+          </div>
+          <strong data-live="events">842</strong>
+          <div>
+            <div class="stat-meter cyan"><span style="width: 65%"></span></div>
+            <small>simulated Kafka traffic</small>
+          </div>
+        </article>
+        <article class="widget stat-widget">
+          <div class="stat-head">
+            <span>Learning</span>
+            <span class="stat-badge amber">Active Track</span>
+          </div>
+          <strong data-live="learning">76%</strong>
+          <div>
+            <div class="stat-meter amber"><span style="width: 76%"></span></div>
+            <small>R3F and system design</small>
+          </div>
+        </article>
+        <article class="widget code-stream-widget">
+          <div class="stat-head">
+            <span>Activity Stream</span>
+            <span class="stat-badge cyan">Live Ops</span>
+          </div>
+          <div id="activityTicker"></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="desktop-hint" id="desktopHint" aria-hidden="true">
+      <div class="hint-inner">
+        <span class="hint-pulse"></span>
+        <span class="hint-title">WORKSPACE READY</span>
+        <span class="hint-sub">Explore backend services, run terminal commands, or review the resume capsule.</span>
+        <div class="hint-keys">
+          <span><kbd>Ctrl</kbd> + <kbd>`</kbd> Terminal</span>
+          <span><kbd>Ctrl</kbd> + <kbd>Space</kbd> AI Co-pilot</span>
+          <span><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> Projects</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="dock-widgets" aria-label="Interactive widgets">
+      <article class="mini-panel">
+        <div class="panel-head">
+          <span>Skill Pulse</span>
+          <b data-live="cpu">42%</b>
+        </div>
+        <div class="pulse-bars">
+          <i style="--value: 92%"></i>
+          <i style="--value: 86%"></i>
+          <i style="--value: 74%"></i>
+          <i style="--value: 68%"></i>
+        </div>
+      </article>
+      <article class="mini-panel">
+        <div class="panel-head">
+          <span>Project Activity</span>
+          <b data-live="load">0.73</b>
+        </div>
+        <div class="sparkline" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </article>
+      <article class="mini-panel">
+        <div class="panel-head">
+          <span>Cert Radar</span>
+          <b>3 tracks</b>
+        </div>
+        <p>Spring, Kafka, Docker labs queued for deeper validation.</p>
+      </article>
+    </section>
+
+    <div class="window-layer" id="windowLayer" aria-live="polite"></div>
+
+    <aside class="notification-center" id="notificationCenter" aria-label="Notification center" hidden>
+      <div class="drawer-head">
+        <p class="eyebrow">MILESTONES</p>
+        <button class="icon-button" type="button" data-close-drawer="notifications" aria-label="Close notifications">x</button>
+      </div>
+      <div id="notificationsList"></div>
+    </aside>
+
+    <aside class="assistant-panel" id="assistantPanel" aria-label="AI assistant" hidden>
+      <div class="drawer-head">
+        <div>
+          <p class="eyebrow">AI CO-PILOT</p>
+          <h2>Ask the workspace</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-drawer="assistant" aria-label="Close assistant">x</button>
+      </div>
+      <div class="assistant-feed" id="assistantFeed"></div>
+      <div class="assistant-prompts">
+        <button type="button" data-assistant-prompt="What is your strongest backend work?">Backend work</button>
+        <button type="button" data-assistant-prompt="Show me a hiring summary.">Hiring summary</button>
+        <button type="button" data-assistant-prompt="Which project proves data engineering skill?">Data proof</button>
+      </div>
+      <form class="assistant-input" id="assistantForm">
+        <input id="assistantInput" type="text" placeholder="Ask about projects, skills, or contact..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </aside>
+
+    <nav class="taskbar" aria-label="Operating system taskbar">
+      <button class="start-button" id="startButton" type="button" aria-label="Open launcher">ES</button>
+      <div class="start-menu" id="startMenu" hidden>
+        <p class="eyebrow">LAUNCHER</p>
+        <button type="button" data-open-window="about">About Ezzeldeen</button>
+        <button type="button" data-open-window="explorer">Project Files</button>
+        <button type="button" data-open-window="terminal">Command Terminal</button>
+        <button type="button" data-open-window="taskManager">Task Manager</button>
+        <button type="button" data-open-window="monitor">System Monitor</button>
+        <button type="button" data-open-window="resume">Resume Capsule</button>
+      </div>
+      <button class="taskbar-search" type="button" data-open-window="terminal" title="Quick Terminal (Ctrl+`)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <span>Command Palette <kbd>Ctrl+`</kbd></span>
+      </button>
+      <div class="taskbar-apps" id="taskbarApps"></div>
+      <div class="tray">
+        <div class="tray-status" title="System Status: Operational">
+          <span class="status-dot"></span>
+          <span>14ms</span>
+        </div>
+        <button class="tray-button is-active" type="button" id="soundToggle" aria-label="Toggle sound effects" title="Audio Effects">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          <span>SFX</span>
+        </button>
+        <button class="tray-button" type="button" id="assistantToggle" aria-label="Open AI assistant" title="AI Co-pilot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+          <span>AI</span>
+        </button>
+        <button class="tray-button" type="button" id="notificationToggle" aria-label="Open notifications" title="Notifications">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span>NOTIFY</span>
+        </button>
+        <button class="tray-button danger" type="button" id="shutdownButton" aria-label="Shutdown" title="Suspend Session">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
+        </button>
+      </div>
+    </nav>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
